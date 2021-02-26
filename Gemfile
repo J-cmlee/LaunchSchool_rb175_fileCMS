@@ -6,3 +6,4 @@ gem "erubis"
 gem 'webrick'
 gem 'minitest'
 gem 'rack-test'
+gem 'redcarpet'
