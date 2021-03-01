@@ -33,10 +33,10 @@ end
 def load_file_content(path)
   content = File.read(path)
   case File.extname(path)
-  when '.txt'
-    headers['Content-Type'] = 'text/plain'
+  when ".txt"
+    headers["Content-Type"] = "text/plain"
     content
-  when '.md'
+  when ".md"
     erb render_markdown(content)
   end
 end
@@ -83,6 +83,18 @@ def valid_credentials?(username, password)
     bcrypt_password == password
   else
     false
+  end
+end
+
+# For testing only
+get "/view" do
+  file_path = File.join(data_path, File.basename(params[:filename]))
+
+  if File.exist?(file_path)
+    load_file_content(file_path)
+  else
+    session[:message] = "#{params[:filename]} does not exist."
+    redirect "/"
   end
 end
 
