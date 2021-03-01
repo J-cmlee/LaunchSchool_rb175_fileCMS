@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    bcrypt (3.1.16)
     erubis (2.7.0)
     minitest (5.14.2)
     multi_json (1.15.0)
@@ -31,6 +32,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt
   erubis
   minitest
   rack-test
